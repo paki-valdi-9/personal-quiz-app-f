@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "temp-folder": {
+    "personal-quiz-app-f": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,79 +12,129 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "quiz",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/temp-folder",
+            "singleBundle": true,
+            "outputPath": "dist/apps/personal-quiz-app-f",
             "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "main": "src/main.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/favicon.ico",
+              "src/assets",
               {
-                "glob": "**/*",
-                "input": "public"
+                "glob": "manifest.json",
+                "input": ".",
+                "output": "."
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "styles": ["src/app/styles/main.scss"],
+            "scripts": []
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "10MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "15kB"
                 }
               ],
               "outputHashing": "all"
             },
-            "development": {
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ],
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "singleBundle": true,
+            "port": 5600,
+            "buildTarget": "personal-quiz-app-f:build"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "temp-folder:build:production"
+              "buildTarget": "personal-quiz-app-f:build:production"
             },
             "development": {
-              "buildTarget": "temp-folder:build:development"
+              "buildTarget": "personal-quiz-app-f:build:development"
+            },
+            "local": {
+              "buildTarget": "personal-quiz-app-f:build:local"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "buildTarget": "personal-quiz-app-f:build"
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "styles": ["src/app/styles/main.scss"],
+            "buildTarget": "personal-quiz-app-f:build",
+            "compodoc": false,
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "styles": ["src/app/styles/main.scss"],
+            "configDir": ".storybook",
+            "buildTarget": "personal-quiz-app-f:build",
+            "compodoc": false,
+            "outputDir": "storybook-static"
+          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
               "src/**/*.ts",
+              "src/**/*.scss",
               "src/**/*.html"
             ]
           }
@@ -93,8 +143,7 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "angular-eslint"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"],
+    "analytics": false
   }
 }

@@ -1,0 +1,5 @@
+{
+  "name": "personal-quiz-app-f",
+  "dependencies": {},
+  "main": "http://localhost:5600/main.js"
+}

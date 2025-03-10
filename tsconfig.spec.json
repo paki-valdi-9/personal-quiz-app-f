@@ -5,10 +5,8 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": ["jest"],
-    "module": "commonjs"
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true
   },
-  "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+  "include": ["src/**/*.spec.ts", "src/**/*.fake.ts", "src/**/*.d.ts"]
 }

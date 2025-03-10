@@ -25,7 +25,7 @@
           { "avoidEscape": true, "allowTemplateLiterals": true }
         ],
         "@typescript-eslint/no-unused-vars": [
-          "error",
+          "warn",
           {
             "argsIgnorePattern": "^_",
             "varsIgnorePattern": "^_",
@@ -42,7 +42,7 @@
           "error",
           {
             "type": ["element", "attribute"],
-            "prefix": ["app"],
+            "prefix": ["quiz", "app"],
             "style": "kebab-case"
           }
         ]
@@ -58,7 +58,7 @@
     }
     // {
     //   "files": ["*.ts"],
-    //   "extends": ["plugin:@ngrx/recommended"],
+    //   "extends": ["plugin:@ngrx/all"],
     //   "rules": {
     //     "@ngrx/prefer-effect-callback-in-block-statement": "off",
     //     "@ngrx/avoid-dispatching-multiple-actions-sequentially": "off"
@@ -66,7 +66,7 @@
     // },
     // {
     //   "files": ["*fake.ts"],
-    //   "extends": ["plugin:@ngrx/recommended"],
+    //   "extends": ["plugin:@ngrx/all"],
     //   "rules": {
     //     "@ngrx/prefer-effect-callback-in-block-statement": "off",
     //     "@ngrx/avoid-dispatching-multiple-actions-sequentially": "off",
