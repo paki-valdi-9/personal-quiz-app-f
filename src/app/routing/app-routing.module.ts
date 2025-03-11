@@ -1,9 +1,8 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { CoreComponent } from '../cards/core.component';
-import { LandingComponent } from '../cards/quiz/landing/landing.component';
-import { NgModule } from '@angular/core';
+import { LandingComponent } from '../cards/landing/landing.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: CoreComponent,
@@ -16,9 +15,3 @@ const routes: Routes = [
     ],
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
