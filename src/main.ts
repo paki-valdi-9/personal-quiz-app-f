@@ -1,3 +1,4 @@
+import { CanActivateFn } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -9,7 +10,7 @@ import { createCustomElement } from '@angular/elements';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app/routing/app-routing.module';
-import { CoreComponent } from './app/cards/core.component';
+import { entryPointGuard } from './app/routing/guards/entrypoint.guard';
 
 bootstrapApplication(AppComponent, {
   providers: [
