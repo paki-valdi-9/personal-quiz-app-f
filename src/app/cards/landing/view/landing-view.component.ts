@@ -1,3 +1,4 @@
+import { LANDING_PAGE_CONSTANTS } from './../../../types/constants';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,4 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./landing-view.component.scss'],
   imports: [MatCardModule, MatButtonModule, MatIconModule],
 })
-export class LandingViewComponent {}
+export class LandingViewComponent {
+  LANDING_PAGE_CONSTANTS = LANDING_PAGE_CONSTANTS;
+}

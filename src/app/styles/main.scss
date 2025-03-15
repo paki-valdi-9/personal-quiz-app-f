@@ -1,8 +1,10 @@
 /* Global material styles */
 @use '@angular/material' as mat;
+@import './variables/variables';
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $body-bg-color;
+  font-family: $default-app-font;
   margin: 0;
   padding: 30px;
   height: calc(100vh - 60px);
