@@ -1,0 +1,13 @@
+<div class="feature-card">
+  <div class="icon-container">
+    @if(icon.startsWith('http')){
+    <img [src]="this.icon" alt="icon" />
+    } @else{
+    <mat-icon>{{ icon }}</mat-icon>
+    }
+  </div>
+  <div class="content">
+    <h3 class="title">{{ title }}</h3>
+    <p class="description">{{ description }}</p>
+  </div>
+</div>

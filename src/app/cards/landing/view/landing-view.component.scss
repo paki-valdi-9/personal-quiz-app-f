@@ -41,6 +41,7 @@
     z-index: 1;
 
     mat-card-header {
+      padding-bottom: 35px;
       justify-content: center;
     }
 
@@ -55,14 +56,20 @@
     text-align: center;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    flex-wrap: wrap;
-    align-content: center;
+    flex-wrap: nowrap;
     position: relative;
+    flex-direction: column;
+    align-items: center;
+
+    .landing-header{
+      width: 100%;
+      height: 200px;
+      padding-bottom: 80px;
+    }
 
     h1 {
       font-family: $default-app-font;
@@ -78,6 +85,22 @@
     //   color: $default-font-color-white;
     //   font-family: $default-app-font;
     // }
+
+    .quiz-features{
+
+      mat-card-header {
+        padding-bottom: 10px;
+      }
+
+      mat-card-content {
+        flex-direction: row;
+      }
+
+      h3 {
+        font-family: $default-app-font;
+        color: $default-font-color-white;
+      }
+    }
   }
 
   .gradient-blur {
@@ -86,9 +109,9 @@
     filter: blur(160px);
     width: 100%;
     max-width: 640px;
-    max-height: 600px;
+    max-height: 350px;
     height: 100%;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: linear-gradient(
