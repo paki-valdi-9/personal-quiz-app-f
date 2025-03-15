@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { CoreComponent } from '../cards/core.component';
 import { LandingComponent } from '../cards/landing/landing.component';
 import { entryPointGuard } from './guards/entrypoint.guard';
+import { QuestionnaireComponent } from '../cards/questionnaire/questionnaire.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +14,10 @@ export const routes: Routes = [
       {
         path: 'meet-me',
         component: LandingComponent,
+      },
+      {
+        path: 'quiz',
+        component: QuestionnaireComponent,
       },
     ],
   },
