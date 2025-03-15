@@ -1,4 +1,5 @@
 <div class="quiz-landing-view-wrapper">
+  <mat-card-header class="landing-header"></mat-card-header>
   <!-- Gradient Blur Background -->
   <div class="gradient-blur"></div>
 
@@ -14,6 +15,31 @@
         Meet Me!
       </button>
       <h5>{{ LANDING_PAGE_CONSTANTS.subtitle }}</h5>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="quiz-features">
+    <mat-card-header>
+      <mat-card-title>
+        <h3>{{ LANDING_PAGE_CONSTANTS.featuresTitle }}</h3>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="quiz-card-content">
+      <quiz-app-feature
+        [title]="FEATURES_CONTENT.feature1.title"
+        [description]="FEATURES_CONTENT.feature1.description"
+        [icon]="FEATURES_CONTENT.feature1.icon"
+      ></quiz-app-feature>
+      <quiz-app-feature
+        [title]="FEATURES_CONTENT.feature2.title"
+        [description]="FEATURES_CONTENT.feature2.description"
+        [icon]="FEATURES_CONTENT.feature2.icon"
+      ></quiz-app-feature>
+      <quiz-app-feature
+        [title]="FEATURES_CONTENT.feature3.title"
+        [description]="FEATURES_CONTENT.feature3.description"
+        [icon]="FEATURES_CONTENT.feature3.icon"
+      ></quiz-app-feature>
     </mat-card-content>
   </mat-card>
 </div>
