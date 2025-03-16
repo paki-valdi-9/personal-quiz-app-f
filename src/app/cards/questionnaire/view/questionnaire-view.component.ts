@@ -10,11 +10,19 @@ import { Router } from '@angular/router';
   imports: [MatCardModule, MatButtonModule, MatIconModule],
 })
 export class QuestionnaireViewComponent {
-  public onBackButtonClick = () => {
+  public onBackClick = () => {
     this.router.navigate(['/meet-me'], {
       replaceUrl: true,
       onSameUrlNavigation: 'reload',
     });
+  };
+
+  public onQuestionnaireBackClick = () => {
+    console.log('navigating questionnaire back');
+  };
+
+  public onQuestionnaireForwardClick = () => {
+    console.log('navigating questionnaire forward');
   };
 
   constructor(private readonly router: Router) {}

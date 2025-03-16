@@ -1,23 +1,32 @@
-<div class="questionnaire-wrapper">
+<div class="questionnaire-view-wrapper">
   <mat-card-header class="questionnaire-header">
-    <button mat-flat-button color="primary" (click)="onBackButtonClick()">
+    <button mat-flat-button color="primary" (click)="onBackClick()">
       Back
       <mat-icon iconPositionEnd>arrow_back_ios</mat-icon>
     </button>
   </mat-card-header>
   <div class="gradient-blur"></div>
 
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title> </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="questionnaire-card-content"> </mat-card-content>
-  </mat-card>
-
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title> </mat-card-title>
-    </mat-card-header>
-    <mat-card-content> </mat-card-content>
-  </mat-card>
+  <div class="questionnare-wrapper">
+    <button
+      class="back-button questionnaire-navigating-button"
+      mat-icon-button
+      (click)="onQuestionnaireBackClick()"
+    >
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <mat-card class="questionnare">
+      <mat-card-header>
+        <mat-card-title> </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="questionnaire-card-content"> </mat-card-content>
+    </mat-card>
+    <button
+      class="forward-button questionnaire-navigating-button"
+      mat-icon-button
+      (click)="onQuestionnaireForwardClick()"
+    >
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
 </div>
