@@ -1,0 +1,56 @@
+@import "../../../../styles/variables/variables";
+
+:host {
+    .answer-container {
+        height: 150px;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;  
+        font-weight: 600;
+
+        ::ng-deep {
+            .mdc-button__label{
+                min-height: 50px;
+                max-height: 50px;
+            }
+        }
+
+        &.correct{
+            button{
+                background: $correct-answer;
+                color: $default-font-color-white;
+                border-color: $correct-answer;
+            }
+        }
+
+        &.wrong{
+            button{    
+                background: $wrong-answer;
+                color: $default-font-color-white;
+                border-color: $wrong-answer;
+            }
+        }
+
+        button {
+            font-family: $default-app-font;
+            border-color: $default-font-color-white;
+            color: $default-font-color-white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 1.5rem;
+            width: 100%;
+            height: 100%;
+        }
+
+        mat-icon {
+            width: 24px;
+            height: 24px;
+            font-size: 1.5rem;
+            margin-right: 0;
+            margin-left: 2px;
+        }
+    }
+}

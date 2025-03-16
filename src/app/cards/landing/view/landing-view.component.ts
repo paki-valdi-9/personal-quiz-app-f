@@ -2,7 +2,7 @@ import {
   FEATURES_CONTENT,
   LANDING_PAGE_CONSTANTS,
 } from './../../../types/constants';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
