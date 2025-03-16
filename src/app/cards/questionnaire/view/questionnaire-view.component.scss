@@ -1,0 +1,128 @@
+@import '../../../styles/variables/variables';
+
+:host {
+
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      background-color: $button-background;
+      font-family: $default-app-font;
+      font-size: 18px;
+      font-weight: 600;
+      color: $default-font-color-white;
+      height: 50px;
+    }
+
+    h5 {
+      color: $default-font-color-white;
+      font-family: $default-app-font;
+    }
+  }
+
+  mat-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    // background: linear-gradient(
+    //   170deg, 
+    //   $azure-palette 0%, 
+    //   $default-white-80 110%
+    //   );
+    padding-bottom: 25px;
+    max-width: 700px;
+    max-height: 480px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+
+    mat-card-header {
+      padding-bottom: 35px;
+      justify-content: center;
+    }
+
+    ::ng-deep {
+      .mat-mdc-card-header-text {
+        width: 100%;
+      }
+    }
+  }
+
+  .questionnaire-wrapper {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    flex-wrap: nowrap;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+
+    .questionnaire-header{
+      width: 100%;
+      height: 200px;
+      padding-bottom: 80px;
+
+      button {
+        display: flex;
+        flex-direction: row-reverse;
+        background: radial-gradient(67.5% 67.5% at 50% 50%, #4b5563 0, rgba(75, 85, 99, 0) 100%);
+        border: 0 solid #e5e7eb;
+        border-width: 1px;
+        border-color: rgb(107 114 128 / 1);
+        font-family: $default-app-font;
+        font-size: 14px;
+        font-weight: 600;
+        color: $default-font-color-white;
+        height: 45px;
+
+        mat-icon {
+            margin: 0 4px 0 0;
+        }
+      }
+    }
+
+    h1 {
+      font-family: $default-app-font;
+      font-size: $landing-title-font-size;
+      background-image: $default-landing-image;
+      color: transparent;
+      font-weight: 800;
+      background-clip: text;
+      line-height: 1.25;
+    }
+
+    // h5, p {
+    //   color: $default-font-color-white;
+    //   font-family: $default-app-font;
+    // }
+  }
+
+  .gradient-blur {
+    position: absolute;
+    margin: auto;
+    filter: blur(160px);
+    width: 100%;
+    max-width: 640px;
+    max-height: 350px;
+    height: 100%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(
+      180deg,
+      #7c3aed 0%,
+      rgba(152, 103, 240, 0.984375) 0.01%,
+      rgba(237, 78, 80, 0.2) 40%
+    );
+    z-index: 0;
+  }
+}

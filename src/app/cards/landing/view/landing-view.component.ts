@@ -19,7 +19,7 @@ export class LandingViewComponent {
   LANDING_PAGE_CONSTANTS = LANDING_PAGE_CONSTANTS;
   FEATURES_CONTENT = FEATURES_CONTENT;
 
-  public onButtonClick = () => {
+  public onMeetMeButtonClick = () => {
     this.router.navigate(['/quiz'], {
       replaceUrl: true,
       onSameUrlNavigation: 'reload',
