@@ -1,0 +1,10 @@
+@import "../../../../styles/variables/variables";
+
+:host {
+    .question-container {
+        h3 {
+            font-family: $default-app-font;
+            color: $default-font-color-white;
+        }
+    }
+}
