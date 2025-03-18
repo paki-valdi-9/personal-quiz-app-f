@@ -22,6 +22,7 @@
     <button
       mat-icon-button
       class="back-button questionnaire-navigating-button"
+      [class.disabled]="currentQuestionIndex === 0"
       [disabled]="currentQuestionIndex === 0"
       (click)="onQuestionnaireBackClick()"
     >
@@ -83,6 +84,7 @@
     <button
       mat-icon-button
       class="forward-button questionnaire-navigating-button"
+      [class.disabled]="!selectedAnswers[currentQuestionIndex]"
       [disabled]="!selectedAnswers[currentQuestionIndex]"
       (click)="onQuestionnaireForwardClick()"
     >
