@@ -1,12 +1,9 @@
-<div
-  class="answer-container"
-  [class.correct]="this.isSelected && this.answer.isCorrect"
-  [class.wrong]="this.isSelected && !this.answer.isCorrect"
->
+<div class="answer-container" [class.selected]="this.isSelected">
   <button mat-stroked-button (click)="onAnswerClick()">
     {{ answer.text }}
-    <mat-icon>{{
-      this.isSelected && this.answer.icon ? this.answer.icon : "question_mark"
-    }}</mat-icon>
+    <mat-icon>{{ this.isSelected ? "check" : "question_mark" }}</mat-icon>
   </button>
 </div>
+
+<!-- [class.correct]="this.isSelected && this.answer.isCorrect"
+[class.wrong]="this.isSelected && !this.answer.isCorrect" -->
