@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class AnswerComponent {
   @Input() answer!: Answer;
   @Input() isSelected = false;
+  @Input() isCorrect = false;
   @Output() answerSelected = new EventEmitter<boolean>();
 
   onAnswerClick() {

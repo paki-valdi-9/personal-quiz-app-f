@@ -9,3 +9,10 @@ export interface Question {
   text: string;
   answers: Answer[];
 }
+
+export interface QuizState {
+  questions: Question[];
+  currentQuestionIndex: number;
+  selectedAnswers: Answer[];
+  completed: boolean;
+}

@@ -1,9 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { QuestionnaireViewComponent } from './view/questionnaire-view.component';
+import { Store } from '@ngrx/store';
+import {
+  selectCurrentQuestionIndex,
+  selectIsQuizCompleted,
+  selectProgress,
+  selectQuestions,
+  selectSelectedAnswers,
+} from './store/selectors';
+import { loadQuestions } from './store/actions';
 
 @Component({
   selector: 'quiz-questionnaire',
-  template: '<quiz-app-questionnaire-view></quiz-app-questionnaire-view>',
-  imports: [QuestionnaireViewComponent],
+  template: `<quiz-app-questionnaire-view
+    [questions]="questions$ | async"
+    [currentQuestionIndex]="currentQuestionIndex$ | async"
+    [selectedAnswers]="selectedAnswers$ | async"
+    [progress]="progress$ | async"
+    [isQuizCompleted]="isQuizCompleted$ | async"
+  >
+  </quiz-app-questionnaire-view>`,
+  imports: [CommonModule, QuestionnaireViewComponent],
 })
-export class QuestionnaireComponent {}
+export class QuestionnaireComponent implements OnInit {
+  protected questions$ = this.store.select(selectQuestions);
+  protected currentQuestionIndex$ = this.store.select(
+    selectCurrentQuestionIndex
+  );
+  protected selectedAnswers$ = this.store.select(selectSelectedAnswers);
+  protected progress$ = this.store.select(selectProgress);
+  protected isQuizCompleted$ = this.store.select(selectIsQuizCompleted);
+
+  ngOnInit(): void {
+    this.store.dispatch(loadQuestions());
+  }
+
+  constructor(private readonly store: Store) {}
+}
