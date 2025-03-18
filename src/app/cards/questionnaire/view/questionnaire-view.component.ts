@@ -14,6 +14,8 @@ import {
   resetQuiz,
   setAnswer,
 } from '../store/actions';
+import { getQuizResultMessage } from '../store/utils';
+
 @Component({
   selector: 'quiz-app-questionnaire-view',
   templateUrl: './questionnaire-view.component.html',
@@ -34,6 +36,7 @@ export class QuestionnaireViewComponent {
   @Input() progress: number;
   @Input() isQuizCompleted: boolean;
   @Input() isQuizResultView: boolean;
+  @Input() correctAnswersCount: number;
 
   constructor(private store: Store, private router: Router) {}
 
@@ -43,6 +46,10 @@ export class QuestionnaireViewComponent {
 
   onQuestionnaireForwardClick() {
     this.store.dispatch(nextQuestion());
+  }
+
+  getQuizResultMessage(): string {
+    return getQuizResultMessage(this.selectedAnswers);
   }
 
   handleAnswer(answer: Answer) {

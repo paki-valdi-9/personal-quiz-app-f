@@ -59,6 +59,19 @@
     display: flex;
     align-items: center;
 
+    .quiz {
+      mat-card-content { 
+        gap: 4rem;
+      }
+    }
+
+    .result{
+      padding-bottom: 0;
+      mat-card-content{
+        justify-content: space-between;
+      }
+    }
+
     .questionnaire {
         width: 800px;
         background: radial-gradient(67.5% 67.5% at 50% 50%, #4b5563 0, rgba(75, 85, 99, 0.15) 100%);
@@ -66,9 +79,7 @@
         border-width: 1px;
         border-color: rgb(107 114 128 / 1);
 
-        .quiz{
-          gap: 4rem;
-        }
+        
     }
 
     .back-button {
@@ -205,7 +216,6 @@
 
   .summary-header{
     width: 100%;
-    padding-left: 16px;
     margin-top: 8px;
     font-family: $default-app-font;
     font-size: $summary-title;
@@ -215,40 +225,57 @@
   .summary-view {
     padding: 20px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   
     h2 {
       font-size: 24px;
       margin-bottom: 30px;
     }
+
+    .summary-result-message{
+      font-family: $default-app-font;
+      font-size: 14px;
+      color: $result-message-font-color-white;
+
+      h3{
+        text-align: center;
+        
+      }
+    }
   
     .summary-list {
-      margin-bottom: 30px;
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 20px;
   
       .summary-item {
         margin-bottom: 20px;
         padding: 15px;
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.1);
   
         h3 {
+          font-family: $default-app-font;
+          color: $default-font-color-white;
           margin: 0 0 10px 0;
-          font-size: 16px;
+          font-size: 20px;
         }
   
         .answer-status {
           display: flex;
-          align-items: center;
+          justify-content: space-evenly;
           gap: 8px;
           padding: 8px;
           border-radius: 4px;
   
           &.correct {
-            background: #4CAF50;
+            background: $correct-answer;
             color: white;
           }
   
           &:not(.correct) {
-            background: #F44336;
+            background: $wrong-answer;
             color: white;
           }
   

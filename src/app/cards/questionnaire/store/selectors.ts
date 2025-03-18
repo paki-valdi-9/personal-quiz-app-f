@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { QuizState } from './models';
 import { FEATURE_KEYS } from '@persona-quiz-app-f/app/constants/feature-keys';
+import { correctAnswersCount } from './utils';
 
 export const selectQuizFeature = createFeatureSelector<QuizState>(
   FEATURE_KEYS.QUESTIONNAIRE
@@ -41,4 +42,9 @@ export const selectProgress = createSelector(
 export const selectIsQuizCompleted = createSelector(
   selectQuizFeature,
   (state) => state.completed
+);
+
+export const selectNumberOfCorrectAnswers = createSelector(
+  selectSelectedAnswers,
+  (selectedAnswers) => correctAnswersCount(selectedAnswers)
 );
