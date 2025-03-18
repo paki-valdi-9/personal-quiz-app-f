@@ -33,11 +33,6 @@
     background: transparent;
     border: none;
     box-shadow: none;
-    // background: linear-gradient(
-    //   170deg, 
-    //   $azure-palette 0%, 
-    //   $default-white-80 110%
-    //   );
     padding-bottom: 25px;
     max-width: 700px;
     max-height: 480px;
@@ -146,6 +141,46 @@
       background-clip: text;
       line-height: 1.25;
     }
+
+    .progress-wrapper{
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      mat-icon {
+        color: $default-font-color-white;
+      }
+
+      mat-progress-bar {
+        max-width: 600px;
+        margin: 16px;
+        height: 16px;
+  
+        ::ng-deep{
+          .mdc-linear-progress__buffer{
+            max-width: 600px;
+            height: 12px;
+            border-radius: 12px;
+          }
+  
+          .mdc-linear-progress__buffer-bar{
+            background-color: transparent;
+          }
+  
+          .mdc-linear-progress__primary-bar {
+            .mdc-linear-progress__bar-inner{
+              border-radius: 24px;
+              border-top-width: 8px;
+              border-color: $selected-answer;
+            }
+          }
+        }
+      }
+    }
+
+    
   }
 
   .gradient-blur {

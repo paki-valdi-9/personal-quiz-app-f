@@ -62,6 +62,7 @@ export class QuestionnaireViewComponent {
   }
 
   public onBackClick = () => {
+    this.store.dispatch(resetQuiz());
     this.router.navigate(['/meet-me'], {
       replaceUrl: true,
       onSameUrlNavigation: 'reload',
