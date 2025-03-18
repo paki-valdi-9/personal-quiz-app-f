@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Router } from '@angular/router';
 import { QuestionComponent } from '../components/question/question.component';
 import { AnswerComponent } from '../components/answer/answer.component';
 import { Answer, Question } from '../store/models';
+import { Store } from '@ngrx/store';
+import {
+  nextQuestion,
+  previousQuestion,
+  resetQuiz,
+  setAnswer,
+} from '../store/actions';
 @Component({
   selector: 'quiz-app-questionnaire-view',
   templateUrl: './questionnaire-view.component.html',
@@ -16,12 +24,41 @@ import { Answer, Question } from '../store/models';
     MatIconModule,
     QuestionComponent,
     AnswerComponent,
+    MatProgressBarModule,
   ],
 })
 export class QuestionnaireViewComponent {
-  currentQuestionIndex = 0;
-  isCurrentQuestionAnswerSelected = false;
-  selectedAnswers: Answer[] = [];
+  @Input() questions: Question[];
+  @Input() currentQuestionIndex: number;
+  @Input() selectedAnswers: Answer[];
+  @Input() progress: number;
+  @Input() isQuizCompleted: boolean;
+
+  constructor(private store: Store, private router: Router) {}
+
+  onQuestionnaireBackClick() {
+    this.store.dispatch(previousQuestion());
+  }
+
+  onQuestionnaireForwardClick() {
+    this.store.dispatch(nextQuestion());
+  }
+
+  handleAnswer(answer: Answer) {
+    this.store.dispatch(
+      setAnswer({
+        questionIndex: this.currentQuestionIndex,
+        answer:
+          this.selectedAnswers[this.currentQuestionIndex] !== answer
+            ? answer
+            : null,
+      })
+    );
+  }
+
+  resetQuiz() {
+    this.store.dispatch(resetQuiz());
+  }
 
   public onBackClick = () => {
     this.router.navigate(['/meet-me'], {
@@ -29,57 +66,4 @@ export class QuestionnaireViewComponent {
       onSameUrlNavigation: 'reload',
     });
   };
-
-  public onQuestionnaireBackClick = () => {
-    if (this.currentQuestionIndex > 0) {
-      this.currentQuestionIndex--;
-      this.isCurrentQuestionAnswerSelected = false;
-    }
-  };
-
-  public onQuestionnaireForwardClick = () => {
-    if (this.isCurrentQuestionAnswerSelected) {
-      this.currentQuestionIndex++;
-      this.isCurrentQuestionAnswerSelected = false;
-    }
-  };
-
-  public questions: Question[] = [
-    // TODO: refactor this using prod questions
-    {
-      id: 1,
-      text: 'What is Angular?',
-      answers: [
-        { text: 'A JavaScript framework', isCorrect: false },
-        { text: 'A TypeScript-based framework', isCorrect: true },
-        { text: 'A database system', isCorrect: false },
-      ],
-    },
-    {
-      id: 2,
-      text: 'What is Pako?',
-      answers: [
-        { text: 'Me', isCorrect: true },
-        { text: 'Not me', isCorrect: false },
-        { text: 'Gurantee its notme', isCorrect: false },
-      ],
-    },
-  ];
-
-  get currentQuestion(): Question {
-    return this.questions[this.currentQuestionIndex];
-  }
-
-  handleAnswer(isSelected: boolean, answer: Answer) {
-    if (this.selectedAnswers[this.currentQuestionIndex] === answer) {
-      this.selectedAnswers[this.currentQuestionIndex] = null;
-      return;
-    }
-    this.selectedAnswers[this.currentQuestionIndex] = answer;
-    this.isCurrentQuestionAnswerSelected = isSelected;
-
-    answer.icon = answer.isCorrect ? 'check' : 'close';
-  }
-
-  constructor(private readonly router: Router) {}
 }

@@ -8,17 +8,26 @@ import { isDevMode } from '@angular/core';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app/routing/app-routing.module';
+import { QuestionnaireFeature } from './app/cards/questionnaire/store/feature';
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { QuizEffects } from './app/cards/questionnaire/store/effects';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes, withComponentInputBinding()),
-    // provideStore(reducers, {
-    //     runtimeChecks: {
-    //       strictStateImmutability: true,
-    //       strictActionImmutability: true,
-    //     }
-    //   }),
-    // provideEffects(effects),
+    provideStore(
+      {
+        [QuestionnaireFeature.name]: QuestionnaireFeature.reducer,
+      },
+      {
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+        },
+      }
+    ),
+    provideEffects([QuizEffects]),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
