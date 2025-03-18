@@ -8,7 +8,6 @@ import {
   loadQuestionsSuccess,
   nextQuestion,
 } from './actions';
-import { Question } from './models';
 import { Store } from '@ngrx/store';
 import { selectCurrentQuestionIndex, selectQuestions } from './selectors';
 import { questions } from '@persona-quiz-app-f/app/types/constants';
