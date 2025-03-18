@@ -29,8 +29,12 @@
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
 
-    <mat-card class="questionnaire">
-      <mat-card-content [class.quiz]="!isQuizResultView">
+    <mat-card
+      class="questionnaire"
+      [class.quiz]="!isQuizResultView"
+      [class.result]="isQuizResultView"
+    >
+      <mat-card-content>
         @if(!isQuizCompleted || !isQuizResultView){
         <ng-container>
           <quiz-app-question
@@ -55,20 +59,23 @@
         <h2 class="summary-header">Quiz Summary</h2>
         <div class="summary-view">
           <div class="summary-list">
-            @for (question of questions; track question.id; let i = $index) {
             <div class="summary-item">
-              <h3>{{ question.text }}</h3>
-              <div
-                class="answer-status"
-                [class.correct]="selectedAnswers[i]?.isCorrect"
-              >
-                {{ selectedAnswers[i]?.text }}
-                <mat-icon>
-                  {{ selectedAnswers[i]?.isCorrect ? "check" : "close" }}
-                </mat-icon>
+              <h3>Correct</h3>
+              <div class="answer-status correct">
+                {{ correctAnswersCount }}
+                <mat-icon>check</mat-icon>
               </div>
             </div>
-            }
+            <div class="summary-item">
+              <h3>Wrong</h3>
+              <div class="answer-status wrong">
+                {{ selectedAnswers.length - correctAnswersCount }}
+                <mat-icon>close</mat-icon>
+              </div>
+            </div>
+          </div>
+          <div class="summary-result-message">
+            <h3>{{ getQuizResultMessage() }}</h3>
           </div>
         </div>
         <div class="summary-footer">

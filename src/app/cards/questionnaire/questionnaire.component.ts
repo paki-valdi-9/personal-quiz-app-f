@@ -6,6 +6,7 @@ import {
   selectCurrentQuestionIndex,
   selectIsQuizCompleted,
   selectIsQuizResultView,
+  selectNumberOfCorrectAnswers,
   selectProgress,
   selectQuestions,
   selectSelectedAnswers,
@@ -21,6 +22,7 @@ import { loadQuestions } from './store/actions';
     [progress]="progress$ | async"
     [isQuizCompleted]="isQuizCompleted$ | async"
     [isQuizResultView]="isQuizResultView$ | async"
+    [correctAnswersCount]="correctAsnwersCount$ | async"
   >
   </quiz-app-questionnaire-view>`,
   imports: [CommonModule, QuestionnaireViewComponent],
@@ -34,6 +36,9 @@ export class QuestionnaireComponent implements OnInit {
   protected progress$ = this.store.select(selectProgress);
   protected isQuizCompleted$ = this.store.select(selectIsQuizCompleted);
   protected isQuizResultView$ = this.store.select(selectIsQuizResultView);
+  protected correctAsnwersCount$ = this.store.select(
+    selectNumberOfCorrectAnswers
+  );
 
   ngOnInit(): void {
     this.store.dispatch(loadQuestions());

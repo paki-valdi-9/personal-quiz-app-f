@@ -1,3 +1,5 @@
+import { Question } from '../cards/questionnaire/store/models';
+
 export const LANDING_PAGE_CONSTANTS = {
   gameName: 'Personal Quiz App',
   title: `Welcome to the Personal Quiz App`,
@@ -27,3 +29,53 @@ export const FEATURES_CONTENT = {
     icon: 'lightbulb',
   },
 };
+
+export const questions: Question[] = [
+  {
+    id: 1,
+    text: 'What is Angular?',
+    answers: [
+      {
+        text: 'A JavaScript framework',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+      {
+        text: 'A TypeScript-based framework',
+        isCorrect: true,
+        icon: 'question_mark',
+      },
+      {
+        text: 'A database system',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+    ],
+  },
+  {
+    id: 2,
+    text: 'What is Pako?',
+    answers: [
+      { text: 'Me', isCorrect: true, icon: 'question_mark' },
+      { text: 'Not me', isCorrect: false, icon: 'question_mark' },
+      {
+        text: 'Gurantee its notme',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+    ],
+  },
+  {
+    id: 3,
+    text: 'What is Pakoo?',
+    answers: [
+      { text: 'Me', isCorrect: true, icon: 'question_mark' },
+      { text: 'Not me', isCorrect: false, icon: 'question_mark' },
+      {
+        text: 'Gurantee its notme',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+    ],
+  },
+];

@@ -11,6 +11,7 @@ import {
 import { Question } from './models';
 import { Store } from '@ngrx/store';
 import { selectCurrentQuestionIndex, selectQuestions } from './selectors';
+import { questions } from '@persona-quiz-app-f/app/types/constants';
 
 @Injectable()
 export class QuizEffects {
@@ -18,42 +19,6 @@ export class QuizEffects {
     this.actions$.pipe(
       ofType(loadQuestions),
       map(() => {
-        const questions: Question[] = [
-          {
-            id: 1,
-            text: 'What is Angular?',
-            answers: [
-              {
-                text: 'A JavaScript framework',
-                isCorrect: false,
-                icon: 'question_mark',
-              },
-              {
-                text: 'A TypeScript-based framework',
-                isCorrect: true,
-                icon: 'question_mark',
-              },
-              {
-                text: 'A database system',
-                isCorrect: false,
-                icon: 'question_mark',
-              },
-            ],
-          },
-          {
-            id: 2,
-            text: 'What is Pako?',
-            answers: [
-              { text: 'Me', isCorrect: true, icon: 'question_mark' },
-              { text: 'Not me', isCorrect: false, icon: 'question_mark' },
-              {
-                text: 'Gurantee its notme',
-                isCorrect: false,
-                icon: 'question_mark',
-              },
-            ],
-          },
-        ];
         return loadQuestionsSuccess({ questions });
       })
     )
