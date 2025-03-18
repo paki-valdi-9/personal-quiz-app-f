@@ -1,14 +1,13 @@
-// store/quiz/quiz.selectors.ts
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { QuizState } from './models';
 import { FEATURE_KEYS } from '@persona-quiz-app-f/app/constants/feature-keys';
 
-export const selectQuizState = createFeatureSelector<QuizState>(
+export const selectQuizFeature = createFeatureSelector<QuizState>(
   FEATURE_KEYS.QUESTIONNAIRE
 );
 
 export const selectQuestions = createSelector(
-  selectQuizState,
+  selectQuizFeature,
   (state) => state.questions
 );
 
@@ -17,24 +16,29 @@ export const selectQuestionsLength = createSelector(
   (questions) => questions.length
 );
 
+export const selectIsQuizResultView = createSelector(
+  selectQuizFeature,
+  (state) => state.isQuizResultView
+);
+
 export const selectCurrentQuestionIndex = createSelector(
-  selectQuizState,
+  selectQuizFeature,
   (state) => state.currentQuestionIndex
 );
 
 export const selectSelectedAnswers = createSelector(
-  selectQuizState,
+  selectQuizFeature,
   (state) => state.selectedAnswers
 );
 
 export const selectProgress = createSelector(
-  selectQuizState,
-  (state) =>
-    (state.selectedAnswers.filter((a) => a).length / state.questions.length) *
-    100
+  selectSelectedAnswers,
+  selectQuestions,
+  (selectedAnswers, questions) =>
+    (selectedAnswers.filter((a) => a).length / questions.length) * 100
 );
 
 export const selectIsQuizCompleted = createSelector(
-  selectQuizState,
+  selectQuizFeature,
   (state) => state.completed
 );

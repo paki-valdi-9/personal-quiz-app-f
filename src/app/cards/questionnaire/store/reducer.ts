@@ -1,4 +1,3 @@
-// store/quiz/quiz.reducer.ts
 import { createReducer, on } from '@ngrx/store';
 import { QuizState } from './models';
 import {
@@ -15,6 +14,7 @@ export const initialState: QuizState = {
   currentQuestionIndex: 0,
   selectedAnswers: [],
   completed: false,
+  isQuizResultView: false,
 };
 
 export const quizReducer = createReducer(
@@ -34,6 +34,7 @@ export const quizReducer = createReducer(
   })),
   on(previousQuestion, (state) => ({
     ...state,
+    isQuizResultView: false,
     currentQuestionIndex: state.currentQuestionIndex - 1,
   })),
   on(resetQuiz, (state) => ({
@@ -43,5 +44,6 @@ export const quizReducer = createReducer(
   on(completeQuiz, (state) => ({
     ...state,
     completed: true,
+    isQuizResultView: true,
   }))
 );

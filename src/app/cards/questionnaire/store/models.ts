@@ -1,6 +1,6 @@
 export interface Answer {
   text: string;
-  icon?: string;
+  icon: string;
   isCorrect: boolean;
 }
 
@@ -15,4 +15,5 @@ export interface QuizState {
   currentQuestionIndex: number;
   selectedAnswers: Answer[];
   completed: boolean;
+  isQuizResultView: boolean;
 }

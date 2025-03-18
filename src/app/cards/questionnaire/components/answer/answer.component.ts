@@ -13,6 +13,8 @@ export class AnswerComponent {
   @Input() answer!: Answer;
   @Input() isSelected = false;
   @Input() isCorrect = false;
+  @Input() isCompleted: boolean;
+
   @Output() answerSelected = new EventEmitter<boolean>();
 
   onAnswerClick() {
