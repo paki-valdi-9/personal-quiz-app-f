@@ -8,11 +8,15 @@
 
   <div class="gradient-blur"></div>
 
-  <mat-progress-bar
-    mode="determinate"
-    [value]="progress"
-    color="primary"
-  ></mat-progress-bar>
+  <div class="progress-wrapper">
+    <mat-icon iconPositionEnd>arrow_back_ios</mat-icon>
+    <mat-progress-bar
+      mode="determinate"
+      [value]="progress"
+      color="primary"
+    ></mat-progress-bar>
+    <mat-icon iconPositionEnd>arrow_forward_ios</mat-icon>
+  </div>
 
   <div class="questionnaire-wrapper">
     <button
