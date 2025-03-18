@@ -14,7 +14,7 @@
     color="primary"
   ></mat-progress-bar>
 
-  <div class="questionnare-wrapper">
+  <div class="questionnaire-wrapper">
     <button
       mat-icon-button
       class="back-button questionnaire-navigating-button"
@@ -24,9 +24,9 @@
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
 
-    <mat-card class="questionnare">
-      <mat-card-content class="questionnaire-card-content">
-        @if(!isQuizCompleted){
+    <mat-card class="questionnaire">
+      <mat-card-content [class.quiz]="!isQuizResultView">
+        @if(!isQuizCompleted || !isQuizResultView){
         <ng-container>
           <quiz-app-question
             [question]="questions[currentQuestionIndex]"
@@ -40,14 +40,15 @@
                 selectedAnswers[currentQuestionIndex]?.text === answer.text
               "
               [isCorrect]="answer.isCorrect"
+              [isCompleted]="isQuizCompleted"
               (answerSelected)="handleAnswer(answer)"
             ></quiz-app-answer>
             }
           </div>
         </ng-container>
         } @else {
+        <h2 class="summary-header">Quiz Summary</h2>
         <div class="summary-view">
-          <h2>Quiz Summary</h2>
           <div class="summary-list">
             @for (question of questions; track question.id; let i = $index) {
             <div class="summary-item">
@@ -64,42 +65,21 @@
             </div>
             }
           </div>
+        </div>
+        <div class="summary-footer">
           <button mat-flat-button color="primary" (click)="resetQuiz()">
-            Restart Quiz
+            Retake
+            <mat-icon>replay</mat-icon>
           </button>
         </div>
         }
       </mat-card-content>
     </mat-card>
 
-    <!-- <mat-card class="questionnare">
-      <mat-card-header>
-        <mat-card-title>
-          <quiz-app-question [question]="currentQuestion"> </quiz-app-question>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="questionnaire-card-content">
-        Answers
-        <div class="answers-container">
-          @for (answer of currentQuestion.answers; track answer.text) {
-          <quiz-app-answer
-            [answer]="answer"
-            [isSelected]="
-              this.selectedAnswers[this.currentQuestionIndex] === answer
-            "
-            (answerSelected)="handleAnswer($event, answer)"
-          ></quiz-app-answer>
-          }
-        </div>
-      </mat-card-content>
-    </mat-card> -->
     <button
       mat-icon-button
       class="forward-button questionnaire-navigating-button"
-      [disabled]="
-        (!!selectedAnswers && !selectedAnswers[currentQuestionIndex]) ||
-        isQuizCompleted
-      "
+      [disabled]="!selectedAnswers[currentQuestionIndex]"
       (click)="onQuestionnaireForwardClick()"
     >
       <mat-icon>arrow_forward_ios</mat-icon>

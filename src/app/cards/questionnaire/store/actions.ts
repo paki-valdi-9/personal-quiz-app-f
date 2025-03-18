@@ -1,4 +1,3 @@
-// store/quiz/quiz.actions.ts
 import { createAction, props } from '@ngrx/store';
 import { Answer, Question } from './models';
 

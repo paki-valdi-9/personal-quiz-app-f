@@ -33,6 +33,7 @@ export class QuestionnaireViewComponent {
   @Input() selectedAnswers: Answer[];
   @Input() progress: number;
   @Input() isQuizCompleted: boolean;
+  @Input() isQuizResultView: boolean;
 
   constructor(private store: Store, private router: Router) {}
 
