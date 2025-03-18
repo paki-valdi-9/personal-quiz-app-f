@@ -17,6 +17,16 @@
             }
         }
 
+        &.selected{
+            button {
+                border: 3px solid $selected-answer;
+                mat-icon {
+                    font-size: 1.75rem;
+                    color: $selected-answer;
+                }
+            }
+        }
+
         &.correct{
             button{
                 background: $correct-answer;
