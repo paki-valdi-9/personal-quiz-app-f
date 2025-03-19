@@ -161,7 +161,10 @@
       justify-content: center;
 
       mat-icon {
+        font-size: 1.25rem;
         color: $default-font-color-white;
+        height: 18px;
+        width: auto;
       }
 
       mat-progress-bar {

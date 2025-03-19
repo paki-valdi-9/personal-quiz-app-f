@@ -33,20 +33,20 @@ export const FEATURES_CONTENT = {
 export const questions: Question[] = [
   {
     id: 1,
-    text: 'What is Angular?',
+    text: 'When you would define me with one word, what word it would be?',
     answers: [
       {
-        text: 'A JavaScript framework',
+        text: 'Lazy',
         isCorrect: false,
         icon: 'question_mark',
       },
       {
-        text: 'A TypeScript-based framework',
+        text: 'Interesting',
         isCorrect: true,
         icon: 'question_mark',
       },
       {
-        text: 'A database system',
+        text: 'Not interested',
         isCorrect: false,
         icon: 'question_mark',
       },
@@ -54,12 +54,12 @@ export const questions: Question[] = [
   },
   {
     id: 2,
-    text: 'What is Pako?',
+    text: 'What is my favourite programming field?',
     answers: [
-      { text: 'Me', isCorrect: true, icon: 'question_mark' },
-      { text: 'Not me', isCorrect: false, icon: 'question_mark' },
+      { text: 'Web Development', isCorrect: true, icon: 'question_mark' },
+      { text: 'Mobile Development', isCorrect: false, icon: 'question_mark' },
       {
-        text: 'Gurantee its notme',
+        text: 'Both',
         isCorrect: false,
         icon: 'question_mark',
       },
@@ -67,13 +67,115 @@ export const questions: Question[] = [
   },
   {
     id: 3,
-    text: 'What is Pakoo?',
+    text: 'What do you think is my favourite TV series?',
     answers: [
-      { text: 'Me', isCorrect: true, icon: 'question_mark' },
-      { text: 'Not me', isCorrect: false, icon: 'question_mark' },
+      { text: 'The Office US', isCorrect: true, icon: 'question_mark' },
+      { text: 'Friends', isCorrect: false, icon: 'question_mark' },
       {
-        text: 'Gurantee its notme',
+        text: 'The Big Band Theory',
         isCorrect: false,
+        icon: 'question_mark',
+      },
+    ],
+  },
+  {
+    id: 4,
+    text: 'What is my favourite sitcom?',
+    answers: [
+      { text: 'The Big Band Theory', isCorrect: false, icon: 'question_mark' },
+      { text: 'Friends', isCorrect: true, icon: 'question_mark' },
+      {
+        text: 'How I Met Your Mother',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+    ],
+  },
+  {
+    id: 5,
+    text: 'Where do I live?',
+    answers: [
+      {
+        text: 'Bratislava/Slovakia',
+        isCorrect: true,
+        icon: 'question_mark',
+      },
+      {
+        text: 'Lisbon/Portugal',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+      {
+        text: 'San Marino/Italy',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+    ],
+  },
+  {
+    id: 6,
+    text: 'Which country do I originate from?',
+    answers: [
+      { text: 'Slovakia', isCorrect: false, icon: 'question_mark' },
+      { text: 'Serbia', isCorrect: true, icon: 'question_mark' },
+      {
+        text: 'Croatia',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+    ],
+  },
+  {
+    id: 7,
+    text: 'What is my nationality?',
+    answers: [
+      { text: 'Slovak', isCorrect: true, icon: 'question_mark' },
+      { text: 'Serbian', isCorrect: false, icon: 'question_mark' },
+      {
+        text: 'Croatian',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+    ],
+  },
+  {
+    id: 8,
+    text: 'What is my off-work favourite activity?',
+    answers: [
+      { text: 'Bicycle', isCorrect: false, icon: 'question_mark' },
+      { text: 'Hiking', isCorrect: false, icon: 'question_mark' },
+      {
+        text: 'Gym',
+        isCorrect: true,
+        icon: 'question_mark',
+      },
+    ],
+  },
+  {
+    id: 9,
+    text: 'Do I like playing chess?',
+    answers: [
+      { text: 'Yes', isCorrect: true, icon: 'question_mark' },
+      { text: 'Hell No!', isCorrect: false, icon: 'question_mark' },
+    ],
+  },
+  {
+    id: 10,
+    text: 'What is my most nearby career goal?',
+    answers: [
+      {
+        text: 'Stay on the same level',
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+      {
+        text: `I don't know. I'm confused`,
+        isCorrect: false,
+        icon: 'question_mark',
+      },
+      {
+        text: 'To master web development',
+        isCorrect: true,
         icon: 'question_mark',
       },
     ],
