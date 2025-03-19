@@ -10,7 +10,7 @@ import {
 } from './actions';
 import { Store } from '@ngrx/store';
 import { selectCurrentQuestionIndex, selectQuestions } from './selectors';
-import { questions } from '@persona-quiz-app-f/app/types/constants';
+import { questions } from '@personal-quiz-app-f/app/types/constants';
 
 @Injectable()
 export class QuizEffects {

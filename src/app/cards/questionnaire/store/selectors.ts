@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { QuizState } from './models';
-import { FEATURE_KEYS } from '@persona-quiz-app-f/app/constants/feature-keys';
+import { FEATURE_KEYS } from '@personal-quiz-app-f/app/constants/feature-keys';
 import { correctAnswersCount } from './utils';
 
 export const selectQuizFeature = createFeatureSelector<QuizState>(
