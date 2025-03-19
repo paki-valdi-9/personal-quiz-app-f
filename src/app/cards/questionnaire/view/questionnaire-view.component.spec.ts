@@ -3,8 +3,7 @@ import { Store } from '@ngrx/store';
 import { MockService } from 'ng-mocks';
 import { QuestionnaireViewComponent } from './questionnaire-view.component';
 import { getQuizResultMessage } from '../store/utils';
-import { Answer, Question } from '../store/models';
-import { of } from 'rxjs';
+import { Answer } from '../store/models';
 
 import {
   nextQuestion,

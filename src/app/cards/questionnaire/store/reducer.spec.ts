@@ -9,7 +9,6 @@ import {
   resetQuiz,
   setAnswer,
 } from './actions';
-import { questions } from '@personal-quiz-app-f/app/types/constants';
 
 describe('quizReducer', () => {
   it('should return the initial state when an unknown action is passed', () => {
