@@ -1,9 +1,4 @@
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 @Component({
   selector: 'quiz-app-root',
@@ -12,14 +7,10 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   _route: string | undefined;
 
   @Input() get route(): string | undefined {
     return this._route;
-  }
-  ngOnInit(): void {
-    // tslint:disable-next-line:no-console
-    console.log('App Component Initialized');
   }
 }

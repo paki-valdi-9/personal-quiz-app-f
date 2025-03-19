@@ -1,4 +1,7 @@
-import { questions } from '@persona-quiz-app-f/app/types/constants';
+import {
+  questions,
+  RESULT_VIEW_MESSAGE,
+} from '@personal-quiz-app-f/app/types/constants';
 import { Answer } from './models';
 
 export const correctAnswersCount = (selectedAnswers: Answer[]): number => {
@@ -12,12 +15,12 @@ export const getQuizResultMessage = (selectedAnswers: Answer[]): string => {
   const percentage = percentageOfCrrectAnswers(selectedAnswers);
 
   if (percentage >= 80) {
-    return 'Congrats! You met me! 🎉 You must be a true expert (or just really lucky). Either way, you nailed it!';
+    return RESULT_VIEW_MESSAGE.message100to80;
   } else if (percentage >= 60) {
-    return "Almost there! You're getting to know me! 😄 A few more tries, and you'll be a pro. Keep going!";
+    return RESULT_VIEW_MESSAGE.message79to60;
   } else if (percentage >= 40) {
-    return "Hmm... You're halfway to knowing me! 🤔 Not bad, but there's still some mystery left. Want to try again?";
+    return RESULT_VIEW_MESSAGE.message59to40;
   } else {
-    return "Oops! Did we just meet? 😅 Don't worry, first impressions can be tricky. Let's try again and see if you can crack the code!";
+    return RESULT_VIEW_MESSAGE.message39to0;
   }
 };

@@ -30,10 +30,21 @@ export const FEATURES_CONTENT = {
   },
 };
 
+export const RESULT_VIEW_MESSAGE = {
+  message100to80:
+    'Congrats! You met me! 🎉 You must be a true expert (or just really lucky). Either way, you nailed it!',
+  message79to60:
+    "Almost there! You're getting to know me! 😄 A few more tries, and you'll be a pro. Keep going!",
+  message59to40:
+    "Hmm... You're halfway to knowing me! 🤔 Not bad, but there's still some mystery left. Want to try again?",
+  message39to0:
+    "Oops! Did we just meet? 😅 Don't worry, first impressions can be tricky. Let's try again and see if you can crack the code!",
+};
+
 export const questions: Question[] = [
   {
     id: 1,
-    text: 'When you would define me with one word, what word it would be?',
+    text: 'What word would you use to define me?',
     answers: [
       {
         text: 'Lazy',
@@ -46,7 +57,7 @@ export const questions: Question[] = [
         icon: 'question_mark',
       },
       {
-        text: 'Not interested',
+        text: 'Meh',
         isCorrect: false,
         icon: 'question_mark',
       },
